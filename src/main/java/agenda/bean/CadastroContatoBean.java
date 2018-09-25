@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -33,15 +35,16 @@ public class CadastroContatoBean implements Serializable {
 		contato = new Contato();
 	}
 
-	/*public void verificarExistenciaDoContato() {
+	public void verificarExistenciaDoContato() {
 		for (Contato contato : listaDeContatos) {
 			if (contato.getCpf().equals(this.contato.getCpf())) {
-				FacesContext.getCurrentInstance().addMessage("Contato já existe!!!",
-						new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario já existe", "Favor verificar"));
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Contato já existe"));
+				/*FacesContext.getCurrentInstance().addMessage("Contato já existe!!!",
+						new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario já existe", "Favor verificar"));*/
 				break;
 			}
 		}
-	}*/
+	}
 
 	public List<Contato> getListaDeContatos() {
 		return listaDeContatos;
