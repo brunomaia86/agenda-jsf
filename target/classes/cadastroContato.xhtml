@@ -13,13 +13,17 @@
 		<p:messages autoUpdate="true" />
 
 		<p:panelGrid columns="2">
+			<f:facet name="header">Cadastro de Contato</f:facet>
+
 			<p:outputLabel value="CPF: " for="cpf" />
-			<p:inputText value="#{cadastroContatoBean.contato.cpf}" id="cpf" required="true">
-				<p:ajax listener="#{cadastroContatoBean.verificarExistenciaDoContato}" event="change" process="@this" />
+			<p:inputText value="#{cadastroContatoBean.contato.cpf}" id="cpf"
+				required="true">
+				<p:ajax listener="#{cadastroContatoBean.verificarExistenciaDoContato}" event="keyup" />
 			</p:inputText>
 
 			<p:outputLabel value="Nome: " for="nome" />
-			<p:inputText value="#{cadastroContatoBean.contato.nome}" id="nome" required="true" />
+			<p:inputText value="#{cadastroContatoBean.contato.nome}" id="nome"
+				required="true" />
 
 			<p:outputLabel value="Telefone: " for="telefone" />
 			<p:inputText value="#{cadastroContatoBean.contato.telefone}"
@@ -27,7 +31,8 @@
 		</p:panelGrid>
 
 		<p:commandButton value="Salvar"
-			action="#{cadastroContatoBean.cadastrar}" update="lista-contatos" />
+			action="#{cadastroContatoBean.cadastrar}" ajax="true"
+			update="lista-contatos" />
 	</h:form>
 	<br />
 

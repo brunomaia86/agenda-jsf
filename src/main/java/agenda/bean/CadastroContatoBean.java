@@ -36,12 +36,18 @@ public class CadastroContatoBean implements Serializable {
 	}
 
 	public void verificarExistenciaDoContato() {
+		FacesMessage msg = null;
 		for (Contato contato : listaDeContatos) {
 			if (contato.getCpf().equals(this.contato.getCpf())) {
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Contato já existe"));
+				msg = new FacesMessage("Usuario já existe");
+				msg.setSeverity(FacesMessage.SEVERITY_WARN);
 				break;
+			} else {
+				msg = new FacesMessage("Usuario ainda não existe");
+				msg.setSeverity(FacesMessage.SEVERITY_INFO);
 			}
 		}
+		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
 	public List<Contato> getListaDeContatos() {

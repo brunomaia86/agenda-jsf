@@ -10,7 +10,7 @@
 </h:head>
 <h:body>
 	<h:form>
-		<p:messages />
+		<p:messages autoUpdate="true" />
 
 		<p:panelGrid columns="2">
 			<f:facet name="header">Cadastro de Contato</f:facet>
@@ -18,7 +18,7 @@
 			<p:outputLabel value="CPF: " for="cpf" />
 			<p:inputText value="#{cadastroContatoBean.contato.cpf}" id="cpf"
 				required="true">
-				<f:ajax listener="#{cadastroContatoBean.verificarExistenciaDoContato}" onevent="change"/>
+				<p:ajax listener="#{cadastroContatoBean.verificarExistenciaDoContato}" event="keyup" />
 			</p:inputText>
 
 			<p:outputLabel value="Nome: " for="nome" />
