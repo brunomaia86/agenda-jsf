@@ -7,9 +7,30 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Cadastro de Contato</title>
+	
+	<style>
+		.ajax-status {
+			width: 35px;
+			height: 35px;
+			position: fixed;
+			right: 10px;
+			top: 60px;
+		}
+	</style>
+	
 </h:head>
 <h:body>
 	<h:form>
+		<p:ajaxStatus styleClass="ajax-status">
+			<f:facet name="start">
+				<h:graphicImage library="imagens" name="loading.gif"></h:graphicImage>
+			</f:facet>
+			<f:facet name="complete">
+				<h:outputText value="" />
+			</f:facet>
+		</p:ajaxStatus>
+		
+			
 		<p:messages autoUpdate="true" />
 
 		<p:panelGrid columns="2">
@@ -18,7 +39,7 @@
 			<p:outputLabel value="CPF: " for="cpf" />
 			<p:inputText value="#{cadastroContatoBean.contato.cpf}" id="cpf"
 				required="true">
-				<p:ajax listener="#{cadastroContatoBean.verificarExistenciaDoContato}" event="keyup" />
+				<p:ajax listener="#{cadastroContatoBean.verificarExistenciaDoContato}" />
 			</p:inputText>
 
 			<p:outputLabel value="Nome: " for="nome" />
@@ -32,7 +53,7 @@
 
 		<p:commandButton value="Salvar"
 			action="#{cadastroContatoBean.cadastrar}" ajax="true"
-			update="lista-contatos" />
+			update="lista-contatos" global="false"/>
 	</h:form>
 	<br />
 

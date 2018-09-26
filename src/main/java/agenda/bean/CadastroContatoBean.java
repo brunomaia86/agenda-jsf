@@ -31,11 +31,19 @@ public class CadastroContatoBean implements Serializable {
 	}
 
 	public void cadastrar() {
+		try {
+			Thread.sleep(2000);
+		} catch (Exception e) {}
+		
 		getListaDeContatos().add(contato);
 		contato = new Contato();
 	}
 
 	public void verificarExistenciaDoContato() {
+		try {
+			Thread.sleep(2000);
+		} catch (Exception e) {}
+		
 		FacesMessage msg = null;
 		for (Contato contato : listaDeContatos) {
 			if (contato.getCpf().equals(this.contato.getCpf())) {
