@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.estudos</groupId>
+  <artifactId>agenda</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<additionalparam>-Xdoclint:none</additionalparam>
+
+		<servlet.api>3.1.0</servlet.api>
+
+		<!-- JSF -->
+		<jsf.api>2.3</jsf.api>
+		<jsf.impl>2.3.2</jsf.impl>
+		<primefaces>6.1</primefaces>
+
+		<!-- CDI -->
+		<cdi.api>2.0</cdi.api>
+		<cdi.impl>3.0.1.Final</cdi.impl>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.api}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- JSF -->
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>javax.faces-api</artifactId>
+			<version>${jsf.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>${jsf.impl}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${primefaces}</version>
+		</dependency>
+
+		<!-- CDI -->
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>${cdi.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-shaded</artifactId>
+			<version>${cdi.impl}</version>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+  
+</project>
